@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController{
+    IBOutlet UIProgressView *expBar;
+    UILabel *levelLabel;
+    
+    NSMutableArray *labelDraw;
+    int makeCount;
+    int squashCount;
+    int level;
+}
 
 
 @end
