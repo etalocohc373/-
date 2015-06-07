@@ -11,8 +11,10 @@
 @interface ViewController : UIViewController{
     IBOutlet UIProgressView *expBar;
     UILabel *levelLabel;
+    UIButton *himaBtn[20];
     
     NSMutableArray *labelDraw;
+    NSArray *fontsArray;
     int makeCount;
     int squashCount;
     int level;
