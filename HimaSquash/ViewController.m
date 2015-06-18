@@ -71,7 +71,7 @@
         if(sec <= 0.0) sec = 0.0;
     }*/
     if(labelDraw.count < 20) makeCount++;
-    if(makeCount >= 100 * 1) {//生成
+    if(makeCount >= 100 * 3) {//生成
 		[self generateHima];
         makeCount = 0;
     }
@@ -112,7 +112,7 @@
 		himaBtn[i].frame = CGRectMake(himaData.x, himaData.y, 50, 50);
         //himaBtn[i].titleLabel.font = [UIFont fontWithName:himaData.font size:30];
 		
-		NSLog(@"updated: %.0f, %.0f", himaData.x, himaData.y);
+		//NSLog(@"updated: %.0f, %.0f", himaData.x, himaData.y);
 		himaBtn[i].titleLabel.font = [UIFont fontWithName:himaData.font size:30];
 		himaBtn[i].tag = i;
     }
@@ -122,8 +122,8 @@
 	HimaData *newData = [[HimaData alloc] init];
 	newData.x = arc4random() % (int)SCREEN_WIDTH;
 	newData.y = arc4random() % (int)SCREEN_HEIGHT;
-	if(level >= 2) newData.font = @"Hiragino Kaku Gothic ProN";
-	else newData.font = @"Hiragino Mincho ProN";
+	
+	newData.font = [fontsArray objectAtIndex:level - 1];
 	
 	[self animateHima:newData];
 	NSLog(@"created: %.0f, %.0f", newData.x, newData.y);
@@ -138,11 +138,6 @@
 	[btn addTarget:self action:@selector(squashHima:) forControlEvents:UIControlEventTouchDown];
 	[self.view addSubview:btn];
 	[self.view sendSubviewToBack:btn];
-	
-	/*[UIView animateWithDuration:1 animations:^{
-		btn.transform = CGAffineTransformMakeScale(2, 2);
-	}completion:^(BOOL finished){
-	}];*/
 	
 	[UIView animateWithDuration:0.05f
 						  delay:0.0f
@@ -169,11 +164,8 @@
 
 -(void)squashHima:(UIButton *)btn{
 	HimaData *himaData = [labelDraw objectAtIndex:btn.tag];
-	if(![himaData.font isEqualToString:@"Hiragino Mincho ProN"]){
-		
-	}
+	squashCount += 1 + (int)[fontsArray indexOfObject:himaData.font];
 	
-	squashCount++;
 	[labelDraw removeObjectAtIndex:btn.tag];
 	[himaBtn[btn.tag] removeFromSuperview];
 	
