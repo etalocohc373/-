@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC5FF0C61B345565009EC7EE /* born.wav in Resources */ = {isa = PBXBuildFile; fileRef = EC5FF0C51B345565009EC7EE /* born.wav */; };
+		EC5FF0C81B34558F009EC7EE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5FF0C71B34558F009EC7EE /* AudioToolbox.framework */; };
+		EC5FF0CA1B345758009EC7EE /* squash.wav in Resources */ = {isa = PBXBuildFile; fileRef = EC5FF0C91B345758009EC7EE /* squash.wav */; };
 		ECA0ADB91B24399700FEC05E /* FOT-GMaruGoPro-M.otf in Resources */ = {isa = PBXBuildFile; fileRef = ECA0ADB81B24399700FEC05E /* FOT-GMaruGoPro-M.otf */; };
 		ECF6492F1AFF1D49008B55BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF6492E1AFF1D49008B55BF /* main.m */; };
 		ECF649321AFF1D49008B55BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF649311AFF1D49008B55BF /* AppDelegate.m */; };
@@ -29,6 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC5FF0C51B345565009EC7EE /* born.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = born.wav; sourceTree = "<group>"; };
+		EC5FF0C71B34558F009EC7EE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		EC5FF0C91B345758009EC7EE /* squash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = squash.wav; sourceTree = "<group>"; };
 		ECA0ADB81B24399700FEC05E /* FOT-GMaruGoPro-M.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FOT-GMaruGoPro-M.otf"; path = "../Library/Fonts/FOT-GMaruGoPro-M.otf"; sourceTree = "<group>"; };
 		ECF649291AFF1D49008B55BF /* HimaSquash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HimaSquash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF6492D1AFF1D49008B55BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC5FF0C81B34558F009EC7EE /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,10 +72,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC5FF0CB1B3457F8009EC7EE /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				EC5FF0C51B345565009EC7EE /* born.wav */,
+				EC5FF0C91B345758009EC7EE /* squash.wav */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
 		ECF649201AFF1D49008B55BF = {
 			isa = PBXGroup;
 			children = (
+				EC5FF0C71B34558F009EC7EE /* AudioToolbox.framework */,
 				ECA0ADB81B24399700FEC05E /* FOT-GMaruGoPro-M.otf */,
+				EC5FF0CB1B3457F8009EC7EE /* sounds */,
 				ECF6492B1AFF1D49008B55BF /* HimaSquash */,
 				ECF649451AFF1D49008B55BF /* HimaSquashTests */,
 				ECF6492A1AFF1D49008B55BF /* Products */,
@@ -207,6 +225,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC5FF0C61B345565009EC7EE /* born.wav in Resources */,
+				EC5FF0CA1B345758009EC7EE /* squash.wav in Resources */,
 				ECA0ADB91B24399700FEC05E /* FOT-GMaruGoPro-M.otf in Resources */,
 				ECF649381AFF1D49008B55BF /* Main.storyboard in Resources */,
 				ECF6493D1AFF1D49008B55BF /* LaunchScreen.xib in Resources */,

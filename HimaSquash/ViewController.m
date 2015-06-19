@@ -44,8 +44,16 @@
 	[self.view addSubview:levelLabel];
 	
 	expBar.transform = CGAffineTransformMakeScale(1.0, 4.0);
-    
-    [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(update) userInfo:nil repeats:YES];
+	
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"born" ofType:@"wav"];
+	NSURL *url = [NSURL fileURLWithPath:path];
+	AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &born_sound);
+	
+	path = [[NSBundle mainBundle] pathForResource:@"squash" ofType:@"wav"];
+	url = [NSURL fileURLWithPath:path];
+	AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &squash_sound);
+
+    [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(update) userInfo:nil repeats:YES];
 	
 }
 
@@ -125,6 +133,7 @@
 	
 	newData.font = [fontsArray objectAtIndex:level - 1];
 	
+	AudioServicesPlaySystemSound(born_sound);
 	[self animateHima:newData];
 	NSLog(@"created: %.0f, %.0f", newData.x, newData.y);
 }
@@ -163,11 +172,14 @@
 }
 
 -(void)squashHima:(UIButton *)btn{
+	AudioServicesPlaySystemSound(squash_sound);
+	
 	HimaData *himaData = [labelDraw objectAtIndex:btn.tag];
 	squashCount += 1 + (int)[fontsArray indexOfObject:himaData.font];
 	
 	[labelDraw removeObjectAtIndex:btn.tag];
-	[himaBtn[btn.tag] removeFromSuperview];
+	//[himaBtn[btn.tag] removeFromSuperview];
+	[himaBtn[labelDraw.count] removeFromSuperview];
 	
 	[expBar setProgress:(float)squashCount / 10 animated:YES];
 	

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface ViewController : UIViewController{
     IBOutlet UIProgressView *expBar;
@@ -18,6 +19,9 @@
     int makeCount;
     int squashCount;
     int level;
+    
+    SystemSoundID born_sound;
+    SystemSoundID squash_sound;
 }
 
 
